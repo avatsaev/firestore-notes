@@ -29,12 +29,12 @@ export class AppComponent implements OnInit{
         content: 'My note 1'
       },
       {
-        id: 1,
+        id: 2,
         title: 'Note 2',
         content: 'My note 2'
       },
       {
-        id: 1,
+        id: 3,
         title: 'Note 3',
         content: 'My note 3'
       }
