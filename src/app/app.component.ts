@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NotesService} from './services/notes.service';
+import {Note} from './models/note';
 
 @Component({
   selector: 'app-root',
@@ -15,11 +16,10 @@ import {NotesService} from './services/notes.service';
       
 
          <app-note-item  
-                 *ngFor="let note of notesService.notes" 
+                 *ngFor="let note of notesService.notes$ | async; trackBy: noteTrackByFn" 
                  [note]="note"
-                 (onDelete)="notesService.deleteNote($event)" 
+                 (onDelete)="notesService.deleteNote($event)"
          ></app-note-item>
-
     
   `,
   styles: []
@@ -29,10 +29,16 @@ export class AppComponent implements OnInit{
   showNoteForm = false;
 
 
+
   constructor(public notesService: NotesService) {}
 
 
   ngOnInit() {
+
+  }
+
+  noteTrackByFn(item: Note) {
+    return item.id;
   }
 
 }

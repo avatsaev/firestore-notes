@@ -6,6 +6,9 @@ import { NoteItemComponent } from './components/note-item/note-item.component';
 import {NotesService} from './services/notes.service';
 import { NoteFormComponent } from './components/note-form/note-form.component';
 import {FormsModule} from '@angular/forms';
+import {AngularFireModule} from 'angularfire2';
+import {environment} from '../environments/environment';
+import {AngularFirestoreModule} from 'angularfire2/firestore';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,9 @@ import {FormsModule} from '@angular/forms';
   ],
   imports: [
     FormsModule,
-    BrowserModule
+    BrowserModule,
+    AngularFireModule.initializeApp(environment.firebaseConf),
+    AngularFirestoreModule
   ],
   providers: [NotesService],
   bootstrap: [AppComponent]

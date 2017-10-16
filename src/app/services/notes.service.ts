@@ -1,8 +1,16 @@
 import { Injectable } from '@angular/core';
 import {Note} from '../models/note';
+import {AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firestore';
+import {Observable} from 'rxjs/Observable';
+import {DocumentChangeAction} from 'angularfire2/firestore/interfaces';
+import * as firebase from 'firebase';
 
 @Injectable()
 export class NotesService {
+
+  private notesCollection: AngularFirestoreCollection<Note>;
+
+  notes$: Observable<Note[]>;
 
   notes : Note[] = [
     {
@@ -22,15 +30,31 @@ export class NotesService {
     }
   ];
 
-  constructor() { }
+  constructor(private afs: AngularFirestore) {
+    this.notesCollection = this.afs.collection<Note>('notes');
+    this.notes$ = this.notesCollection
+        .snapshotChanges()
+        .map(this.mapActionsToNotes);
 
-  addNote(note: Note) {
-    note.id = this.notes.length + 1;
-    this.notes.push(note);
+
   }
 
-  deleteNote(note: Note) {
-    this.notes = this.notes.filter(n => n.id !== note.id);
+
+  mapActionsToNotes(actions: DocumentChangeAction[]): Note[] {
+    return actions.map(a => (
+        {
+          id: a.payload.doc.id,
+          ...a.payload.doc.data()
+        } as Note)
+    )
+  }
+
+  addNote(note: Note): Promise<any> {
+    return this.afs.collection('/notes').add(note);
+  }
+
+  deleteNote(note: Note): Promise<any> {
+    return this.afs.doc(`/notes/${note.id}`).delete();
   }
 
 }
