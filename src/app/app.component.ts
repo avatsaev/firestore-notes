@@ -6,9 +6,9 @@ import {Note} from './models/note';
   template: `
     <h1>Notes:</h1>
       
-      <ul>
-        <li *ngFor="let note of notes">{{note.title}}: {{note.content}}</li>
-      </ul>
+
+         <app-note-item  *ngFor="let note of notes" [note]="note"></app-note-item>
+
     
   `,
   styles: []
