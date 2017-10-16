@@ -29,6 +29,12 @@ import {Note} from '../../models/note';
   styles: [`
       .card{
         margin-bottom: 10px;
+        animation: fadein 400ms;
+      }
+
+      @keyframes fadein {
+        from { opacity: 0; }
+        to   { opacity: 1; }
       }
      
   `]

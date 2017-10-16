@@ -5,9 +5,12 @@ import {NotesService} from './services/notes.service';
   selector: 'app-root',
   template: `
 
-    <a style="margin-bottom: 10px" class="button is-success" (click)="notesService.addNote({title: 'note x', content: 'My Note X'})">
+    <a style="margin-bottom: 10px" class="button is-success" (click)="showNoteForm = !showNoteForm">
       ADD NOTE
     </a>
+
+    <app-note-form *ngIf="showNoteForm" (onSubmit)="notesService.addNote($event); showNoteForm = false" (onCancel)="showNoteForm = false" ></app-note-form>
+
     <h1>Notes:</h1>
       
 
@@ -22,6 +25,8 @@ import {NotesService} from './services/notes.service';
   styles: []
 })
 export class AppComponent implements OnInit{
+
+  showNoteForm = false;
 
 
   constructor(public notesService: NotesService) {}
