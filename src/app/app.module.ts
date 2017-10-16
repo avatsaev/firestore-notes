@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { NoteItemComponent } from './components/note-item/note-item.component';
+import {NotesService} from './services/notes.service';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,7 @@ import { NoteItemComponent } from './components/note-item/note-item.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [NotesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
