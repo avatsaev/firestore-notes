@@ -37,8 +37,6 @@ export class AppComponent implements OnInit{
 
   }
 
-  noteTrackByFn(item: Note) {
-    return item.id;
-  }
+  noteTrackByFn = (item: Note) => item.id;
 
 }
