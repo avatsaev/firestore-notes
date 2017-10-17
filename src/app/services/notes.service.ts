@@ -3,7 +3,6 @@ import {Note} from '../models/note';
 import {AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firestore';
 import {Observable} from 'rxjs/Observable';
 import {DocumentChangeAction} from 'angularfire2/firestore/interfaces';
-import * as firebase from 'firebase';
 
 @Injectable()
 export class NotesService {
@@ -12,31 +11,11 @@ export class NotesService {
 
   notes$: Observable<Note[]>;
 
-  notes : Note[] = [
-    {
-      id: 1,
-      title: 'Note 1',
-      content: 'My note 1'
-    },
-    {
-      id: 2,
-      title: 'Note 2',
-      content: 'My note 2'
-    },
-    {
-      id: 3,
-      title: 'Note 3',
-      content: 'My note 3'
-    }
-  ];
-
   constructor(private afs: AngularFirestore) {
     this.notesCollection = this.afs.collection<Note>('notes');
     this.notes$ = this.notesCollection
         .snapshotChanges()
         .map(this.mapActionsToNotes);
-
-
   }
 
 

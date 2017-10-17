@@ -33,9 +33,7 @@ export class AppComponent implements OnInit{
   constructor(public notesService: NotesService) {}
 
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   noteTrackByFn = (item: Note) => item.id;
 
