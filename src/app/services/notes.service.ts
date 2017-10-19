@@ -4,18 +4,23 @@ import {AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firesto
 import {Observable} from 'rxjs/Observable';
 import {DocumentChangeAction} from 'angularfire2/firestore/interfaces';
 
+import 'rxjs/add/operator/do';
+
+
 @Injectable()
 export class NotesService {
 
   private notesCollection: AngularFirestoreCollection<Note>;
 
   notes$: Observable<Note[]>;
+  loading = true;
 
   constructor(private afs: AngularFirestore) {
     this.notesCollection = this.afs.collection<Note>('notes');
     this.notes$ = this.notesCollection
         .snapshotChanges()
-        .map(this.mapActionsToNotes);
+        .map(this.mapActionsToNotes)
+        .do(notes => this.loading = !Boolean(notes));
   }
 
   addNote(note: Note): Promise<any> {

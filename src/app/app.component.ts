@@ -6,27 +6,29 @@ import {Note} from './models/note';
     selector: 'app-root',
     template: `
       
-      <a 
+        <a 
               style="margin-bottom: 10px" 
               class="button is-success" 
               (click)="showNoteForm = !showNoteForm"
-      >
+        >
         ADD NOTE
-      </a>
-      
-      <app-note-form 
+        </a>
+        
+        <app-note-form 
               *ngIf="showNoteForm" 
               (onSubmit)="notesService.addNote($event); showNoteForm = false" 
               (onCancel)="showNoteForm = false" 
-      ></app-note-form>
-      
-      <h1>Notes:</h1>
-      
-      <app-note-item  
+        ></app-note-form>
+        
+        <h1>Notes:</h1>
+        
+        <app-note-item  
              *ngFor="let note of notesService.notes$ | async; trackBy: noteTrackByFn" 
              [note]="note"
              (onDelete)="notesService.deleteNote($event)"
-      ></app-note-item>
+        ></app-note-item>
+
+        <span *ngIf="notesService.loading">LOADING...</span>
       
       `,
     styles: [],
