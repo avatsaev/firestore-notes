@@ -54,6 +54,8 @@ export class NoteFormComponent implements OnInit {
     @Output() onSubmit = new EventEmitter<Note>();
     @Output() onCancel = new EventEmitter<void>();
 
+    formIsValid = () => this.note.content.length && this.note.title.length;
+
     note: Note = {
         content: '',
         title: ''
@@ -66,6 +68,7 @@ export class NoteFormComponent implements OnInit {
 
     onNoteSubmit() {
         this.onSubmit.emit({...this.note} as Note);
+
         this.note.title = '';
         this.note.content = '';
     }
@@ -75,10 +78,6 @@ export class NoteFormComponent implements OnInit {
         this.note.content = '';
 
         this.onCancel.emit();
-    }
-
-    formIsValid(){
-        return this.note.content.length && this.note.title.length
     }
 
 }
