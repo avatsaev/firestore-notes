@@ -1,5 +1,5 @@
 
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Note} from '../../models/note';
 
 @Component({
@@ -47,7 +47,8 @@ import {Note} from '../../models/note';
         from { opacity: 0; }
         to   { opacity: 1; }
     }
-  `]
+  `],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NoteFormComponent implements OnInit {
 
