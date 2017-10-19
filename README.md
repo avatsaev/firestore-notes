@@ -15,5 +15,5 @@ In order to follow this workshop, you'll need:
 
     - Auto Import: https://marketplace.visualstudio.com/items?itemName=steoates.autoimport
     - Inline Templates: https://marketplace.visualstudio.com/items?itemName=natewallace.angular2-inline
-    - TypeScript Autocompletion: https://marketplace.visualstudio.com/items?itemName=rbbit.typescript-hero-
+    - TypeScript Autocompletion: https://marketplace.visualstudio.com/items?itemName=rbbit.typescript-hero
     - Paths autocompletion: https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense
