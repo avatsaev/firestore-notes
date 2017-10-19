@@ -26,7 +26,7 @@ import {Note} from '../../models/note';
           <button class="button is-danger" (click)="onFormCancel()">Cancel</button>
         </div>
         <div class="control">
-          <button class="button is-success" (click)="onNoteSubmit()">Submit</button>
+          <button [disabled]="!formIsValid()" class="button is-success" (click)="onNoteSubmit()">Submit</button>
         </div>
         
       </div>
@@ -37,9 +37,15 @@ import {Note} from '../../models/note';
     .note-form{
       margin-bottom: 10px;
       padding: 20px;
-      box-shadow: 0px 1px 1px rgba(1,1,1, 0.6);
       background-color: whitesmoke;
       border-radius: 10px;
+      animation: fadein 400ms;
+    }
+    
+
+    @keyframes fadein {
+        from { opacity: 0; }
+        to   { opacity: 1; }
     }
   `]
 })
@@ -69,6 +75,10 @@ export class NoteFormComponent implements OnInit {
     this.note.content = '';
 
     this.onCancel.emit();
+  }
+
+  formIsValid(){
+    return this.note.content.length && this.note.title.length
   }
 
 }

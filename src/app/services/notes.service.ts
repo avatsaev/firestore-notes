@@ -18,16 +18,6 @@ export class NotesService {
         .map(this.mapActionsToNotes);
   }
 
-
-  mapActionsToNotes(actions: DocumentChangeAction[]): Note[] {
-    return actions.map(a => (
-        {
-          id: a.payload.doc.id,
-          ...a.payload.doc.data()
-        } as Note)
-    )
-  }
-
   addNote(note: Note): Promise<any> {
     return this.afs.collection('/notes').add(note);
   }
@@ -35,5 +25,12 @@ export class NotesService {
   deleteNote(note: Note): Promise<any> {
     return this.afs.doc(`/notes/${note.id}`).delete();
   }
+
+  private mapActionsToNotes = (actions: DocumentChangeAction[]): Note[] =>
+      actions.map(a => ({
+          id: a.payload.doc.id,
+          ...a.payload.doc.data()
+      } as Note));
+
 
 }
