@@ -5,11 +5,7 @@ import {Note} from './models/note';
   selector: 'app-root',
   template: `
     <h1>Notes:</h1>
-      
-
-         <app-note-item  *ngFor="let note of notes" [note]="note"></app-note-item>
-
-    
+    <app-note-item  *ngFor="let note of notes" [note]="note"></app-note-item>
   `,
   styles: []
 })

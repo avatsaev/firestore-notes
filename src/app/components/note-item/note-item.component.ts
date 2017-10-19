@@ -21,8 +21,8 @@ import {Note} from '../../models/note';
                 </div>
             </div>
             <footer class="card-footer">
-                <a (click)="onEdit.emit(note)" class="card-footer-item">Edit</a>
-                <a (click)="onDelete.emit(note)" class="card-footer-item">Delete</a>
+                <a class="card-footer-item">Edit</a>
+                <a class="card-footer-item">Delete</a>
             </footer>
         </div>
     `,
@@ -36,8 +36,6 @@ import {Note} from '../../models/note';
 export class NoteItemComponent implements OnInit {
 
     @Input() note: Note;
-    @Output() onEdit = new EventEmitter<Note>();
-    @Output() onDelete = new EventEmitter<Note>();
 
     constructor() { }
 
