@@ -24,8 +24,7 @@ import {Note} from '../../models/note';
         <a (click)="onEdit.emit(note)" class="card-footer-item">Edit</a>
         <a (click)="onDelete.emit(note)" class="card-footer-item">Delete</a>
       </footer>
-    </div>
-  `,
+    </div>`,
   styles: [`
       .card{
         margin-bottom: 10px;
@@ -36,7 +35,6 @@ import {Note} from '../../models/note';
         from { opacity: 0; }
         to   { opacity: 1; }
       }
-     
   `]
 })
 export class NoteItemComponent implements OnInit {
