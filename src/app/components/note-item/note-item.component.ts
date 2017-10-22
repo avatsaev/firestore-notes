@@ -37,10 +37,7 @@ import {Note} from '../../models/note';
 export class NoteItemComponent implements OnInit {
 
     @Input() note: Note;
-<<<<<<< HEAD
     @Output() onDelete = new EventEmitter<Note>();
-=======
->>>>>>> step2
 
     constructor() { }
 
