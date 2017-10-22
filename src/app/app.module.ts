@@ -20,6 +20,7 @@ import {AngularFirestoreModule} from 'angularfire2/firestore';
     FormsModule,
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebaseConf),
+    AngularFirestoreModule.enablePersistence(),
     AngularFirestoreModule
   ],
   providers: [NotesService],
