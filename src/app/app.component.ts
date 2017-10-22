@@ -3,8 +3,7 @@ import {NotesService} from './services/notes.service';
 
 @Component({
   selector: 'app-root',
-  template: `
-
+  template: `      
     <a 
             style="margin-bottom: 10px" 
             class="button is-success" 
@@ -20,7 +19,6 @@ import {NotesService} from './services/notes.service';
            [note]="note"
            (onDelete)="notesService.deleteNote($event)" 
     ></app-note-item>
-      
   `,
   styles: []
 })
