@@ -27,20 +27,21 @@ import {NotesService} from './services/notes.service';
            (onDelete)="notesService.deleteNote($event)" 
     ></app-note-item>
 
+
     
+    <app-note-item  
+           *ngFor="let note of notesService.notes" 
+           [note]="note"
+           (onDelete)="notesService.deleteNote($event)" 
+    ></app-note-item>
   `,
   styles: []
 })
+
 export class AppComponent implements OnInit{
 
   showNoteForm = false;
 
-
   constructor(public notesService: NotesService) {}
-
-
-  ngOnInit() {
-
-  }
-
+  ngOnInit() {}
 }
