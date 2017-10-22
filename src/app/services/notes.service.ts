@@ -24,11 +24,11 @@ export class NotesService {
   }
 
   addNote(note: Note): Promise<any> {
-    return this.afs.collection('/notes').add(note);
+    return this.notesCollection.add(note);
   }
 
   deleteNote(note: Note): Promise<any> {
-    return this.afs.doc(`/notes/${note.id}`).delete();
+    return this.notesCollection.doc(note.id).delete();
   }
 
   private mapActionsToNotes = (actions: DocumentChangeAction[]): Note[] =>
