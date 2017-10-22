@@ -23,11 +23,7 @@ import {Note} from '../../models/note';
             </div>
             <footer class="card-footer">
                 <a class="card-footer-item">Edit</a>
-<<<<<<< HEAD
                 <a (click)="onDelete.emit(note)" class="card-footer-item">Delete</a>
-=======
-                <a class="card-footer-item">Delete</a>
->>>>>>> step2
             </footer>
         </div>
     `,
