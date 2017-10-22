@@ -5,25 +5,29 @@ import {Note} from '../../models/note';
     selector: 'app-note-item',
     template: `
       <div class="card">
+          
         <header class="card-header">
           <span class="card-header-title">
             {{note.title}}
           </span>
           <a href="#" class="card-header-icon" aria-label="more options">
-        <span class="icon">
-          <i class="fa fa-angle-down" aria-hidden="true"></i>
-        </span>
+            <span class="icon">
+              <i class="fa fa-angle-down" aria-hidden="true"></i>
+            </span>
           </a>
         </header>
+          
         <div class="card-content">
           <div class="content">
            {{note.content}}
           </div>
         </div>
+        
         <footer class="card-footer">
           <a (click)="onEdit.emit(note)" class="card-footer-item">Edit</a>
           <a (click)="onDelete.emit(note)" class="card-footer-item">Delete</a>
         </footer>
+      
       </div>`,
     styles: [`
         .card{
@@ -38,14 +42,14 @@ import {Note} from '../../models/note';
     `],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
+
 export class NoteItemComponent implements OnInit {
 
-  @Input() note: Note;
-  @Output() onEdit = new EventEmitter<Note>();
-  @Output() onDelete = new EventEmitter<Note>();
+    @Input() note: Note;
+    @Output() onDelete = new EventEmitter<Note>();
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit() {}
+    ngOnInit() {}
 
 }

@@ -34,14 +34,14 @@ import {Note} from './models/note';
     styles: [],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
+
 export class AppComponent implements OnInit{
 
   showNoteForm = false;
+  noteTrackByFn = (item: Note) => item.id;
 
   constructor(public notesService: NotesService) {}
 
   ngOnInit() {}
-
-  noteTrackByFn = (item: Note) => item.id;
 
 }
