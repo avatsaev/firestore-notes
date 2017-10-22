@@ -7,14 +7,9 @@ import {Note} from '../../models/note';
     template: `
         <div class="card">
             <header class="card-header">
-        <span class="card-header-title">
-          {{note.title}}
-        </span>
-                <a href="#" class="card-header-icon" aria-label="more options">
-      <span class="icon">
-        <i class="fa fa-angle-down" aria-hidden="true"></i>
-      </span>
-                </a>
+                <span class="card-header-title">
+                  {{note.title}}
+                </span>
             </header>
             <div class="card-content">
                 <div class="content">
