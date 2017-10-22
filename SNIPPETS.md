@@ -12,11 +12,6 @@ HTML:
     <header class="card-header">
         <span class="card-header-title">
         </span>
-        <a href="#" class="card-header-icon" aria-label="more options">
-            <span class="icon">
-                <i class="fa fa-angle-down" aria-hidden="true"></i>
-            </span>
-        </a>
     </header>
     <div class="card-content">
         <div class="content">
@@ -32,9 +27,15 @@ HTML:
 CSS:
 
 ```
-.card{
+.card {
     margin-bottom: 10px;
-  } 
+    animation: fadein 400ms;
+} 
+  
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
 ```
 
 ### Step 4
