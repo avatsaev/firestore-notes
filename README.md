@@ -2,6 +2,8 @@
 
 ### Live demo: https://firestore-test-134fe.firebaseapp.com/
 
+### Final Code is on branch step5
+
 ## Prerequisistes:
 
 In order to follow the workshop, you'll need:
