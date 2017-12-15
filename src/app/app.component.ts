@@ -38,7 +38,6 @@ export class AppComponent {
   noteTrackByFn = (note: Note) => note.id;
 
   constructor(public notesService: NotesService) {
-
     this.notesService.notes$.subscribe(notes => this.notes = notes);
   }
 }

@@ -5,7 +5,7 @@ export const environment = {
     authDomain: "firestore-test-134fe.firebaseapp.com",
     databaseURL: "https://firestore-test-134fe.firebaseio.com",
     projectId: "firestore-test-134fe",
-    storageBucket: "",
+    storageBucket: "firestore-test-134fe.appspot.com",
     messagingSenderId: "829161237828"
   }
 };

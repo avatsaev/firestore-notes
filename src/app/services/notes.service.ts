@@ -17,11 +17,8 @@ export class NotesService {
       );
 
   constructor(private afs: AngularFirestore) {
-
     this.notesCollection = this.afs.collection('/notes');
     this.notes$ = this.notesCollection.snapshotChanges().map(this.mapChangeToNotes);
-
-
   }
 
 
