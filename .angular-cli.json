@@ -19,9 +19,9 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.scss",
-        "../node_modules/bulma/css/bulma.css"
+        "styles.scss"
       ],
+      "serviceWorker": true,
       "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
