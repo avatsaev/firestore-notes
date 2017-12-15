@@ -1,5 +1,8 @@
 # Introduction to Angular 4 & Reactive Programming
 
+### Live demo: https://firestore-test-134fe.firebaseapp.com/
+
+### Final code is on branch step5
 
 ## Prerequisistes:
 
